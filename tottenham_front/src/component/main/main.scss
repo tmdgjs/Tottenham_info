@@ -1,0 +1,18 @@
+body{
+    margin : 0;
+    padding : 0;
+    background-color : #EEF0F1;
+}
+
+#main_wrap{
+   display: flex;
+   justify-content: center;
+    
+   #content_wrap{
+       width : 83vw;
+    
+       margin-top : 7vh;
+       background: white     
+       
+   }
+}

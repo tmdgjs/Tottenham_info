@@ -1,0 +1,155 @@
+#home_wrap{
+    #match_date_title_wrap{
+        position: relative;
+        width: 100%;
+        height: 100px;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(17,24,54,.7);
+    
+        &:after{
+            content : "";
+            
+            position: absolute;
+            background-image: url("../../resource/stadium.jpg");
+            background-position:center center; background-repeat: no-repeat ;
+
+            width: 100%;
+            height: 100%;
+            opacity : 0.2;
+            z-index: -1;
+            
+        }
+
+        h1{
+            margin : 0;
+            padding : 0;
+            text-align: center;
+            text-transform: uppercase;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 500;
+            font-size: 30px;
+            letter-spacing: 2px;
+            color : #fff;
+        }
+    }
+    
+    #match_date_wrap{
+ 
+     width : 100%;
+     height : 50vh;
+     background: #1D2440; /* fallback for old browsers */
+     background: -webkit-linear-gradient(to right, #1D2440, #1A1F34); /* Chrome 10-25, Safari 5.1-6 */
+     background: linear-gradient(to right, #1D2440, #1A1F34); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+     
+     ul{
+         list-style-type: none;
+         text-transform: uppercase;
+         color:#fff;
+         font-family: 'Open Sans', sans-serif;
+         font-weight: 700;
+
+         
+         height : 100%;
+         width : 100%;
+         display: flex;
+         flex-wrap: wrap;
+         margin : 0;
+         padding : 0;
+
+         li{
+     
+             width : 33.333%;
+             height : 50%;
+             float: left;
+             border-bottom:1px solid white;
+             border-right : 1px solid white;
+             box-sizing: border-box;
+
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             flex-direction: column;
+
+             &:nth-child(3n){
+                 border-right : none;
+             }
+
+           
+             .enemy_logo{
+                 
+                 img {
+                     width : 150px;
+                     height: 150px;
+                 }
+             }
+
+             .match_date , .match_stadium{
+                 margin : 1px
+             }
+
+             .match_stadium{
+                 font-weight: 100;
+                 font-size: 14px;
+             }
+         }
+         }
+    }
+    .state_wrap{
+
+         padding : 50px;
+        .state_title_wrap{
+           
+            
+            font-size: 20px;
+            h2{
+                margin : 0;
+                padding : 0;
+                 
+                 font-family: 'Open Sans', sans-serif;
+                 font-weight: 100;
+               
+            }
+        }
+
+        .state_table_wrap{
+            width : 100%;
+         
+      
+            table{
+             margin: 44px 15px 21px 15px;
+           
+                 font-family: SourceSansProRegular,Helvetica,sans-serif;
+                 border:none;
+                box-sizing: border-box;
+                border-collapse: collapse;
+                
+                
+                th{
+                    padding : 15px;
+                    background-color : #F2F2F2;
+                     width : 5%;
+                    margin: 0;
+                    font-size: 14px;
+         
+                }
+
+                tr{
+                    
+                    td{
+                         padding : 15px;
+                         text-align: center;
+                         height : 35px;
+
+                         img{
+                             width : 50px;
+                             height : 50px;
+                         }
+                    }
+                }
+            }
+        }
+    }
+}
