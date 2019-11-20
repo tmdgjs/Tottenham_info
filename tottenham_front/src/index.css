@@ -11,3 +11,46 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+@font-face {
+  font-family: ApexNew;
+  font-weight: 300;
+  font-style: normal;
+  src: url(https://tot-tmp.azureedge.net/static/media/apexnew-light.woff2) format("woff2"),url(https://tot-tmp.azureedge.net/static/media/apexnew-light.woff) format("woff")
+}
+
+@font-face {
+  font-family: ApexNew;
+  font-weight: 300;
+  font-style: italic;
+  src: url(https://tot-tmp.azureedge.net/static/media/apexnew-lightitalic.woff2) format("woff2"),url(https://tot-tmp.azureedge.net/static/media/apexnew-lightitalic.woff) format("woff")
+}
+
+@font-face {
+  font-family: ApexNew;
+  font-weight: 400;
+  font-style: normal;
+  src: url(https://tot-tmp.azureedge.net/static/media/apexnew-book.woff2) format("woff2"),url(https://tot-tmp.azureedge.net/static/media/apexnew-book.woff) format("woff")
+}
+
+@font-face {
+  font-family: ApexNew;
+  font-weight: 400;
+  font-style: italic;
+  src: url(https://tot-tmp.azureedge.net/static/media/apexnew-bookitalic.woff2) format("woff2"),url(https://tot-tmp.azureedge.net/static/media/apexnew-bookitalic.woff) format("woff")
+}
+
+@font-face {
+  font-family: ApexNew;
+  font-weight: 500;
+  font-style: normal;
+  src: url(https://tot-tmp.azureedge.net/static/media/apexnew-medium.woff2) format("woff2"),url(https://tot-tmp.azureedge.net/static/media/apexnew-medium.woff) format("woff")
+}
+
+@font-face {
+  font-family: ApexNew;
+  font-weight: 700;
+  font-style: normal;
+  src: url(https://tot-tmp.azureedge.net/static/media/apexnew-bold.woff2) format("woff2"),url(https://tot-tmp.azureedge.net/static/media/apexnew-bold.woff) format("woff")
+}

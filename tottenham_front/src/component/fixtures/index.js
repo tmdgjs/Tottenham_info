@@ -6,24 +6,24 @@ class index extends Component {
         return (
             <div id="fixtures_wrap"> 
                 <div id="main_fixtures_wrap">
-                   <div id="match_txt_wrap">
-                        <h1 className="match_title">
-                            next MATCH
+                   <div id="next_match_txt_wrap">
+                        <h1 className="next_match_title">
+                            next match
                         </h1>
 
-                        <span className="match_day">Saturday</span>
+                        <span className="next_match_day">Saturday</span>
 
-                        <div className="match_time">
+                        <div className="next_match_time">
                             23 November 21:30
                         </div>
 
-                        <div className="match_type_and_place">
-                            <span className="match_type">Premier League</span>
-                            <span className="match_place">London Stadium, London</span>
+                        <div className="next_match_type_and_place">
+                            <span className="next_match_type">Premier League</span>
+                            <span className="next_match_place">London Stadium, London</span>
                         </div>
                    </div>
 
-                   <div id="match_img_wrap">
+                   <div id="next_match_img_wrap">
                         <div className="home_team">
                             <img alt="logo" src="https://tot-tmp.azureedge.net/media/2287/west-ham-united-300x300.png?anchor=center&mode=crop&width=300"/>
                             <span>웨햄</span>    
