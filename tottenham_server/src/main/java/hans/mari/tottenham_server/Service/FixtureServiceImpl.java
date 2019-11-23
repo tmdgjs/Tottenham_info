@@ -30,7 +30,7 @@ public class FixtureServiceImpl implements FixtureService{
 
         check_day(day, day_num);
 
-        Fixture fixture = new Fix
+        //Fixture fixture = new Fix
 
         return null;
     }
