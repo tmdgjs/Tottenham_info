@@ -1,7 +1,22 @@
 package hans.mari.tottenham_server.Domain;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class Fixture {
 
+
+    public Fixture(String home, String homelogo, String away, String awaylogo, String leaguetype, String matchplace, String date, String time, String day) {
+        this.home = home;
+        this.homelogo = homelogo;
+        this.away = away;
+        this.awaylogo = awaylogo;
+        this.leaguetype = leaguetype;
+        this.matchplace = matchplace;
+        this.date = date;
+        this.time = time;
+        this.day = day;
+    }
 
     String home;
     String homelogo;
@@ -10,6 +25,13 @@ public class Fixture {
     String away;
     String awaylogo;
     String awayscore;
+
+    String leaguetype;
+    String matchplace;
+
+    String date;
+    String time;
+    String day;
 
     public Fixture(String home, String homelogo, String homescore, String away, String awaylogo, String awayscore, String leaguetype, String matchplace, String date, String time, String day) {
         this.home = home;
@@ -41,12 +63,7 @@ public class Fixture {
         this.awayscore = awayscore;
     }
 
-    String leaguetype;
-    String matchplace;
 
-    String date;
-    String time;
-    String day;
 
 
     public String getHome() {

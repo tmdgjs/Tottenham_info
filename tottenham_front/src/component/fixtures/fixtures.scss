@@ -25,90 +25,101 @@
             
         }
 
-        #next_match_txt_wrap , #next_match_img_wrap{
-            width : 30%;
-            height : 80%;
-          
-       
-        }
-
-        #next_match_txt_wrap{
+        #next_match_wrap{
+            
             display: flex;
-            flex-direction: column;
             justify-content: center;
-            color:#fff;
+            width : 100%;
+            height :500px;
+            align-items: center;
+            #next_match_txt_wrap , #next_match_img_wrap{
+                width : 30%;
+                height : 80%;
             
-            *{
-                margin-left : 5px;
+        
             }
 
-            .next_match_title{
-                margin : 15px 5px ;
-                padding : 0;
-                font-weight: 400;
-            
-                font-size: 48px;
-                text-transform: uppercase;
-            }
-
-            .next_match_day{
-                font-size: 16px;
-            }
-
-            .next_match_time{
-                margin : 13px 5px;
-                font-size: 48px;
-            }
-
-            .next_match_type_and_place{
-                span{
-                    margin-right: 15px;
-                }
-                .next_match_type{
-                    font-weight: 500;
-                    font-size: 1.1em;
+            #next_match_txt_wrap{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                color:#fff;
+                
+                *{
+                    margin-left : 5px;
                 }
     
-                .next_match_place{
-                    font-weight: 500;
-                    font-size: 1.1em;
+                .next_match_title{
+                    margin : 15px 5px ;
+                    padding : 0;
+                    font-weight: 400;
+                
+                    font-size: 48px;
+                    text-transform: uppercase;
                 }
-            }
-
-
-        }
-
-        #next_match_img_wrap{
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            .home_team, .away_team{
+    
+                .next_match_day{
+                    font-size: 16px;
+                }
+    
+                .next_match_time{
+                    margin : 13px 5px;
+                    font-size: 48px;
+                }
+    
+                .next_match_type_and_place{
+                    span{
+                        margin-right: 15px;
+                    }
+                    .next_match_type{
+                        font-weight: 500;
+                        font-size: 1.1em;
+                    }
         
+                    .next_match_place{
+                        font-weight: 500;
+                        font-size: 1.1em;
+                    }
+                }
+    
+    
+            }
+    
+            #next_match_img_wrap{
                 display: flex;
+                justify-content: flex-start;
                 align-items: center;
-                flex-direction: column;
-
-                span{
-                    margin: 7px 0 0;
+                .home_team, .away_team{
+            
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+    
+                    span{
+                        margin: 7px 0 0;
+                        color: #fff;
+                        font-size: .9em;
+                      
+                    }
+                    
+                    img{
+                        width : 125px; height : 125px;
+                    }
+                }
+    
+                .vs_logo{
+                    line-height: 125px;
+                    height: 125px;
+                    margin: 0 13px;
                     color: #fff;
-                    font-size: .9em;
-                  
+                    font-size: 2em;
                 }
                 
-                img{
-                    width : 125px; height : 125px;
-                }
             }
-
-            .vs_logo{
-                line-height: 125px;
-                height: 125px;
-                margin: 0 13px;
-                color: #fff;
-                font-size: 2em;
-            }
-            
         }
+
+
+     
     }
 
     #fixtures_wrap, #fixtures_result_wrap{

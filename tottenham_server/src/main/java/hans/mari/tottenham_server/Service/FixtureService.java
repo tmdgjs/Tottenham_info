@@ -8,4 +8,6 @@ public interface FixtureService {
 
     List<Fixture> loadfixture(String date);
 
+    Fixture nextmatch(String date);
+
 }
