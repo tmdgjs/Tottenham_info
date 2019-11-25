@@ -1,9 +1,46 @@
 import React, { Component } from 'react';
 
 import './home.scss'
+import Logo from '../../resource/tottenham_logo.png'
+import axios from 'axios'
+import moment from 'moment';
+import MatchList from './match/matchlist'
 
 class index extends Component {
+
+    state={
+        plstat : [],
+        clstat : [],
+        today : moment(new Date()).format('YYYYMMDD'),
+        matchls : []
+    }
+
+    componentDidMount(){
+
+        axios.all([
+            axios.get(`http://localhost:8080/fixture/sixmatch/${this.state.today}`),
+            axios.get(`http://localhost:8080/leaguetable/${1}`),
+            axios.get(`http://localhost:8080/leaguetable/${2}`)
+        ])
+        .then(axios.spread((matchls, plstat,clstat)=>{
+            this.setState({
+                matchls: matchls.data, 
+                plstat : plstat.data,
+                clstat : clstat.data
+            })
+        }))
+        .catch( e=> {
+            this.setState({
+                matchls: [], 
+                plstat : [],
+                clstat : []
+            })
+        })
+
+    }
+
     render() {
+       console.log(this.state.matchls);
         return (
             <div id="home_wrap">
                 <div id="match_date_title_wrap">
@@ -11,21 +48,7 @@ class index extends Component {
                 </div>
                 
                 <div id="match_date_wrap">
-                    <ul>
-                        <li>
-                            <div className="enemy_logo">
-                                <img src="https://tot-tmp.azureedge.net/media/2269/everton-300x300.png?anchor=center&mode=crop&width=300" alt="logo" />
-                            </div>
-                            <div className="match_date">
-                                <span>sun 3 NOV</span><span> | </span> <span>4 : 30</span> <span>PM</span>
-                            </div>
-                            
-                            <div className="match_stadium">
-                                <span>GOODDISON PARK</span>
-                            </div>
-                        </li> 
-                        
-                    </ul>
+                   <MatchList match={this.state.matchls}/>
                 </div>
 
                 <div className="state_wrap">
@@ -53,16 +76,16 @@ class index extends Component {
                             
                             <tbody> 
                                 <tr>
-                                    <td>14</td>
-                                    <td><img src="https://tot-tmp.azureedge.net/media/2269/everton-300x300.png?anchor=center&mode=crop&width=300" alt="logo"/></td>
-                                    <td>12</td>
-                                    <td>3</td>
-                                    <td>5</td>
-                                    <td>4</td>
-                                    <td>18</td>
-                                    <td>17</td>
-                                    <td>1</td>
-                                    <td>14</td>
+                                    <td>{this.state.plstat[0]}</td>
+                                    <td><img src={Logo} alt="logo"/></td>
+                                    <td>{this.state.plstat[1]}</td>
+                                    <td>{this.state.plstat[2]}</td>
+                                    <td>{this.state.plstat[3]}</td>
+                                    <td>{this.state.plstat[4]}</td>
+                                    <td>{this.state.plstat[5]}</td>
+                                    <td>{this.state.plstat[6]}</td>
+                                    <td>{this.state.plstat[7]}</td>
+                                    <td>{this.state.plstat[8]}</td>
                                 </tr>
                             </tbody>
                             
@@ -95,16 +118,16 @@ class index extends Component {
                             
                             <tbody> 
                                 <tr>
-                                    <td>2</td>
-                                    <td><img src="https://tot-tmp.azureedge.net/media/2269/everton-300x300.png?anchor=center&mode=crop&width=300" alt="logo"/></td>
-                                    <td>4</td>
-                                    <td>2</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>13</td>
-                                    <td>9</td>
-                                    <td>4</td>
-                                    <td>7</td>
+                                    <td>{this.state.clstat[0]}</td>
+                                    <td><img src={Logo} alt="logo"/></td>
+                                    <td>{this.state.clstat[1]}</td>
+                                    <td>{this.state.clstat[2]}</td>
+                                    <td>{this.state.clstat[3]}</td>
+                                    <td>{this.state.clstat[4]}</td>
+                                    <td>{this.state.clstat[5]}</td>
+                                    <td>{this.state.clstat[6]}</td>
+                                    <td>{this.state.clstat[7]}</td>
+                                    <td>{this.state.clstat[8]}</td>
                                 </tr>
                             </tbody>
                             

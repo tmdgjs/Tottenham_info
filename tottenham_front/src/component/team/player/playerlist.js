@@ -5,10 +5,10 @@ const playerlist = (props) => {
     return (
         <div id="team_first_wrap">
                     <div className="title">
-                        <h2>Team</h2>
+                        <h2>{props.list_title}</h2>
                     </div>
                     <div className="all_player_wrap">
-                    {props.player.data && props.player.data.map(item => <PlayerItem key={item.id} player={item}/>)}
+                        {props.player && props.player.map(item => <PlayerItem key={item.id} player={item}/>)}
                     </div>
                
         </div>

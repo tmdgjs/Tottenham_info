@@ -34,29 +34,12 @@
 
     #sns_wrap{
         background: white;
-      
-
-        ul{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            list-style: none;
-            margin : 0;
-            padding: 20px 0 15px;
-            text-align: center;
-
-            li{
-                width: 150px;
-                
-                img{
-                    height: 45px;
-                    width: auto;
-                }
-            }
-        }
+        padding: 20px 0 15px;
+        margin : 0;
+    
     }
 
-    #site_wrap{
+    #footer_wrap{
         width: 100%;
         background-color: #0f142a;
         color: #fff;
@@ -66,25 +49,8 @@
         font-family: ApexNew,Helvetica Neue,sans-serif;
         
 
-        ul{
-            margin : 0;
-            padding :0;
-            list-style-type: none;
-            width : 100%;
-            height : 100%;
-
-            display: flex;
-        
-            justify-content: center;
-            align-items: center;
-
-            li{
-                font-size: 14px;
-                padding : 0 15px;
-                border-left : 1px solid white;
-                cursor: pointer;
-                &:first-child{border:none;}
-            }
+        span{
+            cursor: default;
         }
     }
 }

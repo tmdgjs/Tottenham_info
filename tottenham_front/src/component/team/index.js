@@ -6,24 +6,34 @@ import axios from 'axios';
 class index extends Component {
     
     state = {
-        team : []
+        team : [],
+        loan : []
     }
 
-    componentWillMount(){
+    componentDidMount(){
 
+
+        axios.all([
+            axios.get(`http://localhost:8080/player/add/${1}`),
+            axios.get(`http://localhost:8080/player/add/${2}`)
+        ])
+        .then(axios.spread((team, loan)=>{
         
-        axios.get(`http://localhost:8080/player/add`)
-            .then( response => { 
-                this.setState({team: response})
+            this.setState({
+                team: team.data, 
+                loan : loan.data
             })
-            .catch( e => { 
-            this.setState({team: []}) 
-            }
-        );
+        }))
+        .catch( e=> {
+            this.setState({
+                team: [], 
+                loan : []
+            })
+        })
     }
 
     render() {
-
+       
         return (
             <div id="team_wrap">
                 
@@ -34,12 +44,13 @@ class index extends Component {
 
                 <ul id="team_type">
                     <Link to="/team"><li>Players</li></Link>
-                    <Link to="/team/staff"><li>Coaching Staff</li></Link>
+                    <Link to="/staff"><li>Coaching Staff</li></Link>
                 </ul>
                 
-                <PlayerList player={this.state.team}/>
+                <PlayerList player={this.state.team} list_title={"Team"}/>
 
-               
+                <PlayerList player={this.state.loan} list_title={"On loan"}/>
+
             </div>
         );
     }

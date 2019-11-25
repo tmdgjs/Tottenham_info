@@ -18,17 +18,24 @@ public class PlayerServiceImpl implements PlayerService {
     @Autowired
     private PlayerRepository playerRepository;
 
-
-    public List<Player> loadplayers() {
+    @Override
+    public List<Player> loadplayers(Long type) {
 
         List<Player> playerlst = new ArrayList<Player>();
+        List<Player> loanlst = new ArrayList<>();
+        if(type == 1L){
+            playersadd(playerlst, type);
+            return playerlst;
+        }
+        else{
+            playersadd(loanlst, type);
+            return loanlst;
+        }
 
-        playersadd(playerlst);
 
-        return playerlst;
     }
 
-    public void playersadd(List<Player> playerlst){
+    public void playersadd(List<Player> playerlst,Long type){
 
         String url = "https://www.tottenhamhotspur.com/teams/first-team/players/";
 
@@ -56,10 +63,20 @@ public class PlayerServiceImpl implements PlayerService {
                 String countryls[] = countrys.split(",");
                 String backnums = backnum.get(i).text();
 
-               if(backnums.equals("")){
-                   break;
-                   //playertype = "loan";
-               }
+                if(type == 2L){
+
+                    if(!backnums.equals("")){
+                        continue;
+
+                    }
+
+                }
+                else {
+                    if(backnums.equals("")){
+                        break;
+                        //playertype = "loan";
+                    }
+                }
 
                 Player player  = new Player(i,names,playertype,countryls[1],backnums,image[0]);
                 newplayer(playerlst,player);

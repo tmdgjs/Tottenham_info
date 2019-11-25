@@ -12,7 +12,7 @@ class index extends Component {
                 <div id="content_wrap">
                     <Route  path='/' exact component={Home} />
                     <Route path='/fixtures'component={Fixtures} />
-                    <Route path='/team'component={Team} />
+                    <Route path='/team' component={Team} />
                 </div>
             </div>
         );

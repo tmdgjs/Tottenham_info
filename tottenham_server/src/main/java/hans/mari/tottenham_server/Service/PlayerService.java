@@ -8,5 +8,5 @@ public interface PlayerService {
 
 
 
-    List<Player> loadplayers();
+    List<Player> loadplayers(Long type);
 }

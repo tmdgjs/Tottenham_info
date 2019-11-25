@@ -44,58 +44,59 @@
      background: -webkit-linear-gradient(to right, #1D2440, #1A1F34); /* Chrome 10-25, Safari 5.1-6 */
      background: linear-gradient(to right, #1D2440, #1A1F34); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
      
-     ul{
-         list-style-type: none;
-         text-transform: uppercase;
-         color:#fff;
-         font-family: ApexNew,Helvetica Neue,sans-serif;
-         font-weight: 700;
-         letter-spacing: 1px;
+        ul{
+            list-style-type: none;
+            text-transform: uppercase;
+            color:#fff;
+            font-family: ApexNew,Helvetica Neue,sans-serif;
+            font-weight: 700;
+            letter-spacing: 1.5px;
 
          
-         height : 100%;
-         width : 100%;
-         display: flex;
-         flex-wrap: wrap;
-         margin : 0;
-         padding : 0;
+            height : 100%;
+            width : 100%;
+            display: flex;
+            flex-wrap: wrap;
+            margin : 0;
+            padding : 0;
 
-         li{
+             li{
      
-             width : 33.333%;
-             height : 50%;
-             float: left;
-             border-bottom:1px solid white;
-             border-right : 1px solid white;
-             box-sizing: border-box;
+                width : 33.333%;
+                height : 50%;
+                float: left;
+                border-bottom:1px solid white;
+                border-right : 1px solid white;
+                box-sizing: border-box;
 
-             display: flex;
-             justify-content: center;
-             align-items: center;
-             flex-direction: column;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
 
-             &:nth-child(3n){
-                 border-right : none;
-             }
+                &:nth-child(3n){
+                    border-right : none;
+                }
 
            
-             .enemy_logo{
-                 
-                 img {
-                     width : 150px;
-                     height: 150px;
-                 }
-             }
+                .enemy_logo{
+                    
+                    img {
+                        width : 150px;
+                        height: 150px;
+                    }
+                }
 
-             .match_date , .match_stadium{
-                 margin : 1px
-             }
+                .match_date , .match_stadium{
+                    margin : 1px;
+                    
+                }
 
-             .match_stadium{
-                 font-weight: 100;
-                 font-size: 14px;
-             }
-         }
+                .match_stadium{
+                    font-weight: 100;
+                    font-size: 14px;
+                }
+            }
          }
     }
     .state_wrap{
