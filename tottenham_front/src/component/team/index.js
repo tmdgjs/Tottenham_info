@@ -44,7 +44,6 @@ class index extends Component {
 
                 <ul id="team_type">
                     <Link to="/team"><li>Players</li></Link>
-                    <Link to="/staff"><li>Coaching Staff</li></Link>
                 </ul>
                 
                 <PlayerList player={this.state.team} list_title={"Team"}/>

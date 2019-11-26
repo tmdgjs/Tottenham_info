@@ -7,7 +7,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-image: linear-gradient(90deg,rgba(0,0,0,.7),rgba(0,0,0,.6) 30%,rgba(0,0,0,.5) 50%,rgba(0,0,0,.3) 80%,hsla(0,0%,100%,0));
+        background: rgba(17,24,54,1);
     
         &:after{
             content : "";
@@ -15,7 +15,7 @@
             position: absolute;
             background-image: url("../../resource/stadium.jpg");
             background-position:center center; background-repeat: no-repeat ;
-
+            opacity: 0.4;
             width: 100%;
             height: 100%;
             
@@ -31,8 +31,8 @@
             font-family: ApexNew,Helvetica Neue,sans-serif;
             font-weight: 500;
             font-size: 30px;
-            letter-spacing: 2px;
-            color : #fff;
+            letter-spacing: 3px;
+            color : #ffffee;
         }
     }
     
