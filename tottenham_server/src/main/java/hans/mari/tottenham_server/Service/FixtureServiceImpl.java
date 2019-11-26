@@ -39,33 +39,162 @@ public class FixtureServiceImpl implements FixtureService{
     @Override
     public List<Fixture> loadfixture(String date) {
 
-        SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+        String nextyear = String.valueOf(Integer.parseInt(date.substring(0,4)) + 1);
+        String newdate = nextyear + date.substring(4);
 
-        Calendar now = Calendar.getInstance();
+        String url = "";
 
-        int month = now.get(Calendar.MONTH) + 1;
+        url = fixture_url(1,date,newdate);
 
-        now.set(now.get(Calendar.YEAR), month  - 1, now.get(Calendar.DATE));
 
-        String nowtime = format.format(now.getTime());
+        List<Fixture> fixture_list = new ArrayList<Fixture>();
 
-        String lastday = Integer.toString(now.getActualMaximum(Calendar.DAY_OF_MONTH));
+        try {
 
-        String day = "";
+            String raw = Jsoup.connect(url).ignoreContentType(true).execute().body();
+            JSONObject obj = new JSONObject(raw);
+            JSONArray array = obj.getJSONArray("list");
 
-        int day_num = now.get(Calendar.DAY_OF_WEEK);
+            for (int i = 0; i < array.length(); i++) {
 
-        check_day(day, day_num);
+                JSONObject item = array.getJSONObject(i);
+                JSONObject home = item.getJSONObject("home").getJSONObject("team");
+                JSONObject away = item.getJSONObject("away").getJSONObject("team");
 
-        //Fixture fixture = n ew Fix
+                String hometeam = parseString(home, "shortName");
+                String awayteam = parseString(away, "shortName");
 
-        return null;
+                String homelogo = parseString(home,"imageUrl");
+                String awaylogo = parseString(away,"imageUrl");
+
+                String league = item.getJSONObject("league").getString("name");
+
+                String field = item.getJSONObject("field").getString("name");
+
+                String startDate = parseString(item,"startDate");
+
+                String startTime = parseString(item,"startTime");
+
+                String hour = startTime.substring(0, 2);
+
+                String min = startTime.substring(2);
+
+                String time = hour + ":" + min;
+
+                String day = "";
+
+                Calendar cal = Calendar.getInstance();
+
+                cal.set(Integer.parseInt(startDate.substring(0,4)),(Integer.parseInt(startDate.substring(4,6))-1),Integer.parseInt(startDate.substring(6)));
+
+                int day_num = cal.get(Calendar.DAY_OF_WEEK);
+
+                day = check_day(1,day, day_num);
+
+                DateFormat format = new SimpleDateFormat("dd MMM", Locale.ENGLISH);
+
+                String dateformat = format.format(cal.getTime());
+
+                Fixture fixture = new Fixture(i, hometeam, homelogo, awayteam, awaylogo, league, field, dateformat, time, day);
+                fixture_list.add(fixture);
+
+            }
+        }
+        catch(JSONException e) {
+            e.printStackTrace();
+        }
+
+        catch(IOException e){
+            e.printStackTrace();
+        }
+
+        return fixture_list;
+    }
+
+    public String parseString(JSONObject obj, String key){
+        return obj.getString(key);
     }
 
     @Override
     public List<Fixture> resultfixture(String date) {
-        return null;
+
+        String nextyear = String.valueOf(Integer.parseInt(date.substring(0,4)) - 1);
+        String newdate = nextyear + date.substring(4);
+
+        String url = "";
+
+        url = fixture_url(2,date,newdate);
+
+
+        List<Fixture> fixture_rs_list = new ArrayList<Fixture>();
+
+        try {
+
+            String raw = Jsoup.connect(url).ignoreContentType(true).execute().body();
+            JSONObject obj = new JSONObject(raw);
+            JSONArray array = obj.getJSONArray("list");
+
+            for (int i = 0; i < array.length(); i++) {
+
+                JSONObject item = array.getJSONObject(i);
+                JSONObject home = item.getJSONObject("home").getJSONObject("team");
+                JSONObject away = item.getJSONObject("away").getJSONObject("team");
+
+                String hometeam = parseString(home, "shortName");
+                String awayteam = parseString(away, "shortName");
+
+                String homelogo = parseString(home,"imageUrl");
+                String awaylogo = parseString(away,"imageUrl");
+
+                String homescore = parseString(item.getJSONObject("home"),"result");
+                String awayscore = parseString(item.getJSONObject("away"),"result");
+
+                String league = item.getJSONObject("league").getString("name");
+
+                String field = item.getJSONObject("field").getString("name");
+
+                String startDate = parseString(item,"startDate");
+
+                String startTime = parseString(item,"startTime");
+
+                String hour = startTime.substring(0, 2);
+
+                String min = startTime.substring(2);
+
+                String time = hour + ":" + min;
+
+                String day = "";
+
+                Calendar cal = Calendar.getInstance();
+
+                cal.set(Integer.parseInt(startDate.substring(0,4)),(Integer.parseInt(startDate.substring(4,6))-1),Integer.parseInt(startDate.substring(6)));
+
+                int day_num = cal.get(Calendar.DAY_OF_WEEK);
+
+                day = check_day(1,day, day_num);
+
+                DateFormat format = new SimpleDateFormat("dd MMM", Locale.ENGLISH);
+
+                String dateformat = format.format(cal.getTime());
+
+                Fixture fixture = new Fixture(i, hometeam, homelogo, homescore, awayteam, awaylogo, awayscore, league, field, dateformat, time, day);
+                fixture_rs_list.add(fixture);
+
+            }
+        }
+        catch(JSONException e) {
+            e.printStackTrace();
+        }
+
+        catch(IOException e){
+            e.printStackTrace();
+        }
+
+        return fixture_rs_list;
+
     }
+
+
 
     @Override
     public List<Matchup> sixCalendar(String date) {
@@ -108,7 +237,7 @@ public class FixtureServiceImpl implements FixtureService{
 
                 int day_num = cal.get(Calendar.DAY_OF_WEEK);
 
-                day = check_day(day, day_num);
+                day = check_day(2,day, day_num);
 
                 String dateformat = format.format(cal.getTime());
 
@@ -116,6 +245,7 @@ public class FixtureServiceImpl implements FixtureService{
                     hour = String.valueOf(Integer.parseInt(hour) - 12);
                     mer = "PM";
                 }
+
                 else if(Integer.parseInt(hour) == 0){
                     hour = String.valueOf(12);
                 }
@@ -183,7 +313,7 @@ public class FixtureServiceImpl implements FixtureService{
 
                 int day_num = now.get(Calendar.DAY_OF_WEEK);
 
-                day = check_day(day, day_num);
+                day = check_day(1,day, day_num);
 
                 JSONObject hometeam = item.getJSONObject("home").getJSONObject("team");
                 JSONObject awayteam = item.getJSONObject("away").getJSONObject("team");
@@ -196,7 +326,13 @@ public class FixtureServiceImpl implements FixtureService{
                 String hometeamlogo  = hometeam.getString("imageUrl");
                 String awayteamlogo = awayteam.getString("imageUrl");
 
-                fixture = new Fixture(hometeams,hometeamlogo,awayteams,awayteamlogo,league,place,startDate,newtime,day);
+                DateFormat format = new SimpleDateFormat("dd MMMM", Locale.ENGLISH);
+
+                String dateformat = format.format(now.getTime());
+
+
+
+                fixture = new Fixture(hometeams,hometeamlogo,awayteams,awayteamlogo,league,place,dateformat,newtime,day);
 
             }
 
@@ -280,32 +416,41 @@ public class FixtureServiceImpl implements FixtureService{
         rankinglist.add(v);
     }
 
-    public static String check_day(String day, int day_num){
+    public static String check_day(int day_type, String day, int day_num){
 
         switch(day_num){
             case 1:
-                day = "SUN";
+                day = parse_datetype(day_type, "SUN","Sunday");
                 break ;
             case 2:
-                day = "MON";
+                day = parse_datetype(day_type,  "MON","Monday");
                 break ;
             case 3:
-                day = "TUE";
+                day = parse_datetype(day_type,  "TUE","Tuesday");
                 break ;
             case 4:
-                day = "WED";
+                day = parse_datetype(day_type,  "WED","Wednesday");
                 break ;
             case 5:
-                day = "THU";
+                day = parse_datetype(day_type, "THU","Thursday");
                 break ;
             case 6:
-                day = "FRI";
+                day = parse_datetype(day_type, "FRI","Friday");
                 break ;
             case 7:
-                day = "SAT";
+                day = parse_datetype(day_type, "SAT","Saturday");
                 break ;
         }
 
         return day;
+    }
+
+    public static String parse_datetype(int day_type, String s, String f){
+        if(day_type == 1){
+            return f;
+        }
+        else{
+            return s;
+        }
     }
 }

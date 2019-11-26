@@ -10,7 +10,7 @@ Accept: application/json
 
 ###
 
-GET http://localhost:8080/fixture/nextmatch/20191124
+GET http://localhost:8080/fixture/load/20191126
 Accept: application/json
 
 ###

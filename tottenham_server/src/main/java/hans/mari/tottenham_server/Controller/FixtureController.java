@@ -29,4 +29,14 @@ public class FixtureController {
     public List<Integer> load_leaguetable(@PathVariable Long type){
         return fixtureService.leaguetable(type);
     }
+
+    @GetMapping("/fixture/result/{date}")
+    public List<Fixture> resultfixture(@PathVariable String date){
+        return fixtureService.resultfixture(date);
+    }
+
+    @GetMapping("/fixture/load/{date}")
+    public List<Fixture> loadfixture(@PathVariable String date){
+        return fixtureService.loadfixture(date);
+    }
 }

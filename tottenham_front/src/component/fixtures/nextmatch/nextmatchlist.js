@@ -6,7 +6,7 @@ const nextmatchlist = (props) => {
     return (
         <div id="main_fixtures_wrap">
             
-            {props.fixtures.data && <Nextmatchitem fixture={props.fixtures.data}/>}
+            {props.nextmatch && <Nextmatchitem nextmatch={props.nextmatch}/>}
                    
         </div>
     );
