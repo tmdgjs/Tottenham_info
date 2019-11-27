@@ -5,6 +5,8 @@ import Fixtures from '../fixtures'
 import './main.scss'
 import {Route} from 'react-router-dom';
 import Team from '../team'
+import Result from '../result'
+
 class index extends Component {
     render() {
         return (
@@ -13,6 +15,7 @@ class index extends Component {
                     <Route  path='/' exact component={Home} />
                     <Route path='/fixtures'component={Fixtures} />
                     <Route path='/team' component={Team} />
+                    <Route path='/result' component={Result} />
                 </div>
             </div>
         );

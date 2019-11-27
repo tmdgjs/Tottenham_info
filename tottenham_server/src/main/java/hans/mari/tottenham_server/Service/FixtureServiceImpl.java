@@ -66,6 +66,17 @@ public class FixtureServiceImpl implements FixtureService{
 
                 String homelogo = parseString(home,"imageUrl");
                 String awaylogo = parseString(away,"imageUrl");
+                String homescore = "";
+                String awayscore = "";
+
+                try{
+                    homescore = parseString(item.getJSONObject("home"),"result");
+                    awayscore = parseString(item.getJSONObject("away"),"result");
+                }
+                catch(JSONException e){
+                    homescore = null;
+                    awayscore = null;
+                }
 
                 String league = item.getJSONObject("league").getString("name");
 
@@ -95,7 +106,7 @@ public class FixtureServiceImpl implements FixtureService{
 
                 String dateformat = format.format(cal.getTime());
 
-                Fixture fixture = new Fixture(i, hometeam, homelogo, awayteam, awaylogo, league, field, dateformat, time, day);
+                Fixture fixture = new Fixture(i, hometeam, homelogo,homescore, awayteam, awaylogo,awayscore, league, field, dateformat, time, day);
                 fixture_list.add(fixture);
 
             }
@@ -330,9 +341,20 @@ public class FixtureServiceImpl implements FixtureService{
 
                 String dateformat = format.format(now.getTime());
 
+                String homescore = "";
+                String awayscore = "";
+
+                try{
+                    homescore = parseString(item.getJSONObject("home"),"result");
+                    awayscore = parseString(item.getJSONObject("away"),"result");
+                }
+                catch(JSONException e){
+                    homescore = null;
+                    awayscore = null;
+                }
 
 
-                fixture = new Fixture(hometeams,hometeamlogo,awayteams,awayteamlogo,league,place,dateformat,newtime,day);
+                fixture = new Fixture(hometeams,hometeamlogo,homescore,awayteams,awayteamlogo,awayscore,league,place,dateformat,newtime,day);
 
             }
 

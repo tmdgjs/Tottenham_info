@@ -1,12 +1,12 @@
 import React from 'react';
 
 const nextmatchitem = (props) => {
-
+console.log(props)
     return (
         <div id="next_match_wrap">
                 <div id="next_match_txt_wrap">
                 <h1 className="next_match_title">
-                    next match
+                    {props.nextmatch.homescore == null ? 'next match' : 'today match'} 
                 </h1>
 
                 <span className="next_match_day">{props.nextmatch.day}</span>
@@ -28,7 +28,7 @@ const nextmatchitem = (props) => {
                     <span>{props.nextmatch.home}</span>    
                 </div>
 
-                <span className="vs_logo">VS</span>
+                <span className="vs_logo">{props.nextmatch.homescore === null ?  'VS' : props.nextmatch.homescore + ' : ' + props.nextmatch.awayscore }</span>
                 <div className="away_team">
                     <img alt="logo" src={props.nextmatch.awaylogo}/>
                     <span>{props.nextmatch.away}</span>   

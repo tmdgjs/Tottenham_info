@@ -1,0 +1,122 @@
+#result_wrap{
+    width : 60%;
+    margin : 0 auto;
+    margin-bottom : 90px;
+
+    .result_title{
+        h2{
+            margin : 0;padding: 0;
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+            margin-top: 90px;
+
+            &:after{
+                content: "";
+                display: block;
+                width: 45px;
+                height: 3px;
+                background-color: #e0e721;
+                margin-top: 2px;
+            }
+        }
+    }
+
+    .result{
+        width : 100%;
+        
+       
+        display: flex;
+        
+        flex-wrap: wrap;
+
+        .result_item{
+            width : 220px;
+            height : 250px;
+            box-sizing: border-box;
+            background-color:#EEF0F1;
+            border-top : 2px solid #111836;
+            margin-right : 15px ;
+            margin-bottom: 15px;
+            display: flex;
+            
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            span{
+                margin : 3px 0;
+            }
+
+            .items_day{
+                margin: 0 0 4px;
+                text-transform: none;
+                font-weight: 500;
+                font-size: .75rem;
+            }
+
+            .items_time{
+                text-transform: uppercase;
+                font-weight: 500;
+                font-size: 1.2rem;
+            }
+
+            .items_logo{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin : 5px 0;
+                .items_home, .items_away{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    img{
+                        width : 50px; height : 50px;
+                    }
+
+                    span{
+                        text-align: center;
+                        overflow: hidden;
+                        width : 60px;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        margin: 0;
+                        font-size: .7em;
+                        font-weight: 500;
+                    }
+                }
+
+                .item_rs{
+                    line-height: 50px;
+                    color: #111836;
+                    font-size: 1.8em;
+                        
+                    margin : 0 10px;
+                }
+            }
+
+            .items_type{
+                font-size: .875rem;
+                font-weight: 500;
+                font-size: 1rem;
+                line-height: normal;
+                margin-top : 8px;
+                color: #111836;
+                
+            }
+
+            .items_place{
+                text-align: center;
+                width : 80%;
+                font-size: .875rem;
+                font-weight: 400;
+                
+                line-height: 19px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+}

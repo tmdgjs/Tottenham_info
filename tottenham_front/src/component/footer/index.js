@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './footer.scss'
 import Nike from '../../resource/nike_mark.png'
 import Aia from '../../resource/aia_mark.png'
+import {Link} from 'react-router-dom'
 
 class index extends Component {
     render() {
@@ -17,15 +18,10 @@ class index extends Component {
                     
                 </div>
 
-                <div id="sns_wrap">
-                    <ul>
-                       
-                        
-                    </ul>
-                </div>
+                <hr />
 
                 <div id="footer_wrap">
-                    <span>SPURS</span>
+                    <Link to="/team"><span>TEAM</span></Link>
                 </div>
             </footer>
         );

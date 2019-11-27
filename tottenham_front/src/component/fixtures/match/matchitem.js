@@ -1,7 +1,7 @@
 import React from 'react';
 
 const matchitem = (props) => {
-
+    console.log(props)
     return (        
         <div className="fixtures_item">
             <span className="items_day">

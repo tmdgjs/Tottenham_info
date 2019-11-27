@@ -11,7 +11,7 @@ class index extends Component {
                 <ul>
                     <Link to="/fixtures"><li>Fixtures</li></Link>
                     <Link to="/"><img className="title_logo" src={Logo} alt="logo" /></Link>
-                    <Link to="/team"><li>Team</li></Link>
+                    <Link to="/result"><li>Result</li></Link>
                     
                 </ul>
             </div>

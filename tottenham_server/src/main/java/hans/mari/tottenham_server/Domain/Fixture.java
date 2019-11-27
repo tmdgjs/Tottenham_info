@@ -11,6 +11,7 @@ public class Fixture {
 
     int id;
 
+
     String home;
     String homelogo;
     String homescore;
@@ -26,8 +27,7 @@ public class Fixture {
     String time;
     String day;
 
-    public Fixture(int id, String home, String homelogo, String homescore, String away, String awaylogo, String awayscore, String leaguetype, String matchplace, String date, String time, String day) {
-        this.id = id;
+    public Fixture(String home, String homelogo, String homescore, String away, String awaylogo, String awayscore, String leaguetype, String matchplace, String date, String time, String day) {
         this.home = home;
         this.homelogo = homelogo;
         this.homescore = homescore;
@@ -41,24 +41,15 @@ public class Fixture {
         this.day = day;
     }
 
-    public Fixture(String home, String homelogo, String away, String awaylogo, String leaguetype, String matchplace, String date, String time, String day) {
-        this.home = home;
-        this.homelogo = homelogo;
-        this.away = away;
-        this.awaylogo = awaylogo;
-        this.leaguetype = leaguetype;
-        this.matchplace = matchplace;
-        this.date = date;
-        this.time = time;
-        this.day = day;
-    }
 
-    public Fixture(int id, String home, String homelogo, String away, String awaylogo, String leaguetype, String matchplace, String date, String time, String day) {
+    public Fixture(int id, String home, String homelogo, String homescore, String away, String awaylogo, String awayscore, String leaguetype, String matchplace, String date, String time, String day) {
         this.id = id;
         this.home = home;
         this.homelogo = homelogo;
+        this.homescore = homescore;
         this.away = away;
         this.awaylogo = awaylogo;
+        this.awayscore = awayscore;
         this.leaguetype = leaguetype;
         this.matchplace = matchplace;
         this.date = date;
